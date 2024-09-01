@@ -27,7 +27,7 @@ const App = () => {
       // local:
       // const res = await fetch("http://localhost:3001/test1");
       // published:
-      const res = await fetch("https://vercel-fullstack-demo-backend.vercel.app");
+      const res = await fetch("https://vercel-fullstack-demo-backend.vercel.app/test1");
       const data = await res.json();
       console.log("data:", data);
     } catch (error) {
@@ -40,7 +40,7 @@ const App = () => {
       // local:
       // const res = await fetch("http://localhost:3001/test2");
       // published:
-      const res = await fetch("https://vercel-fullstack-demo-backend.vercel.app");
+      const res = await fetch("https://vercel-fullstack-demo-backend.vercel.app/test2");
       const data = await res.json();
       console.log("data:", data);
     } catch (error) {
