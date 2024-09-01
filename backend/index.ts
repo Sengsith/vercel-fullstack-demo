@@ -11,8 +11,7 @@ app.use(cors());
 // Root route
 app.get("/", (req: Request, res: Response) => {
   console.log("Request received.");
-  res.setHeader("Content-Type", "application/json");
-  res.json({ message: "Hello from the backend!" });
+  res.send({ message: "Hello from the backend!" });
 });
 
 // Testing routes
