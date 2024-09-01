@@ -1,10 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  const [message, setMessage] = useState<string>("");
+
+  const fetchMessage = async () => {
+    try {
+      const res = await fetch("http://localhost:3001");
+      const data = await res.json();
+      console.log("data:", data);
+      setMessage(data.message);
+    } catch (error) {
+      console.error("Error fetching API:", error);
+    }
+  };
+
+  const handleClick = () => {
+    setCount((count) => count + 1);
+    fetchMessage();
+  };
 
   return (
     <>
@@ -18,18 +36,15 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={handleClick}>count is {count}</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h2>{message}</h2>
+      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
