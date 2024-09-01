@@ -10,7 +10,10 @@ const App = () => {
 
   const fetchMessage = async () => {
     try {
-      const res = await fetch("http://localhost:3001");
+      // local:
+      // const res = await fetch("http://localhost:3001");
+      // published:
+      const res = await fetch("https://vercel-fullstack-demo-backend.vercel.app");
       const data = await res.json();
       console.log("data:", data);
       setMessage(data.message);
