@@ -22,9 +22,37 @@ const App = () => {
     }
   };
 
+  const fetchTest1Message = async () => {
+    try {
+      // local:
+      // const res = await fetch("http://localhost:3001/test1");
+      // published:
+      const res = await fetch("https://vercel-fullstack-demo-backend.vercel.app");
+      const data = await res.json();
+      console.log("data:", data);
+    } catch (error) {
+      console.error("Error fetching API:", error);
+    }
+  };
+
+  const fetchTest2Message = async () => {
+    try {
+      // local:
+      // const res = await fetch("http://localhost:3001/test2");
+      // published:
+      const res = await fetch("https://vercel-fullstack-demo-backend.vercel.app");
+      const data = await res.json();
+      console.log("data:", data);
+    } catch (error) {
+      console.error("Error fetching API:", error);
+    }
+  };
+
   const handleClick = () => {
     setCount((count) => count + 1);
     fetchMessage();
+    fetchTest1Message();
+    fetchTest2Message();
   };
 
   return (
